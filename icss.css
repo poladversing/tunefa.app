@@ -1,0 +1,44 @@
+body.splash {
+    background: #101210 !important
+}
+
+body.splash .loader>div {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: splash_loader_rotation 2s linear infinite;
+}
+
+body.splash .loader>.bof_part {
+    display: none
+}
+
+body.splash .loader {
+    position: fixed;
+    height: fit-content;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    opacity: 0.1
+}
+
+@keyframes splash_loader_rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bof_part {
+    display: none
+}
