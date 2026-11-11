@@ -1,0 +1,50 @@
+<div class='add_fund_wrapper st_pay'>
+  <div class='st_pay_head'>
+    <a class="st_back" href="user_edit?tab=transactions"><span class="mdi mdi-arrow-left"></span>$bof ? Lang^transactions __uc=true$</a>
+    <div class='title'>$bof ? Lang^add_funds __uc=true$</div>
+  </div>
+  <div class='pgts_wrapper'>
+    <div class='is_wrapper st_pay_grid'>
+
+      <div class='st_pay_main'>
+        <div class='stitle'>$bof ? Lang^pay_method __uc=true$</div>
+        <div class='pgts' role='radiogroup'>
+          $bof foreach single^gateways$
+          <div class='pgt $bof ? code$ icon_t_$bof ? icon_t$' data-name='$bof ? name$' data-code='$bof ? code$' role='radio' aria-checked='false' tabindex='0'>
+            <span class='st_pgt_logo'>
+              $bof if icon_t = icon$
+              <span class="mdi mdi-$bof ? Parent^DataPool^icon_v$"></span>
+              $!bof if icon_t = icon$
+              $bof if icon_t = image$
+              <img src='$bof ? Parent^DataPool^icon_v$' alt=''>
+              $!bof if icon_t = image$
+            </span>
+            <span class='name'>$bof ? title$</span>
+            $bof if fee +$<span class='pgt_fee'>$bof ? Lang^service_fee __uc=true$ $bof ? Parent^DataPool^fee$%</span>$!bof if fee +$
+            $bof if fee false$<span class='pgt_fee _none'>$bof ? Lang^no_fee$</span>$!bof if fee false$
+            <span class='st_pgt_check mdi mdi-check-circle'></span>
+          </div>
+          $!bof foreach single^gateways$
+        </div>
+
+        <div class='stitle __amount'>$bof ? Lang^amount __uc=true$</div>
+        <div class='i_wrapper'>
+          <input type='text' inputmode='decimal' class='bof_input' name='amount' value='100' aria-label='$bof ? Lang^amount __uc=true$'>
+          <span class='currency'>$bof ? single^currency^iso_code$</span>
+        </div>
+      </div>
+
+      <div class='st_pay_side'>
+        <div class="details">
+          <span class='st_sum_row'>$bof ? Lang^amount __uc=true$ <b class='st_sum_amount'>?</b></span>
+          <span class='st_sum_row'>$bof ? Lang^service_fee __uc=true$ <b id='amount_fee'><i class="c">?</i> $bof ? single^currency^symbol$</b></span>
+          <span class='st_sum_row st_sum_total'>$bof ? Lang^service_fee_ced __uc=true$ <b id='amount_full'><i class="c">?</i> $bof ? single^currency^symbol$</b></span>
+        </div>
+        <div class='btns_wrapper'>
+          <a class='btn btn-primary' role='button' tabindex='0'>$bof ? Lang^pay __uc=true$ <span class='the_full_here'></span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

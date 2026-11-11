@@ -1,0 +1,428 @@
+#comments {
+    --padding2x: calc(var(--padding)*2);
+    --padding3x: calc(var(--padding)*3);
+    --box_bg_color: var(--bg_color);
+    --ui_color: var(--font_color);
+    font-size: 10pt;
+}
+#comments .comments_title {
+    font-size: 220%;
+    opacity: 0.85;
+    font-weight: 500;
+    position: relative;
+    transition: 300ms ease all;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    line-height: 1;
+    margin-bottom: calc(var(--padding) * 0.5);
+}
+#comments .comments_sorter {
+    margin-bottom: calc(var(--padding) * 3);
+}
+#comments .comments_title ._c {
+    font-size: 80%;
+    font-size: var(--font_size);
+    margin-left: 10px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0.75;
+    transition: 300ms ease all;
+    color: rgb(var(--theme_color));
+}
+#comments .cw {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: var(--padding2x);
+}
+#comments .cw .avatar_wrapper {
+    flex-shrink: 0;
+    width: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 60px;
+}
+#comments .cw .d_wrapper {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: var(--padding);
+}
+#comments .cw .d_wrapper._ac .btn {
+    position: absolute;
+    right: var(--padding);
+    top: var(--padding);
+    opacity: 0;
+    visibility: hidden;
+    transition: 250ms ease all;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 0;
+    align-content: center;
+    background: rgba(var(--theme_color), 0.2);
+}
+#comments .cw .children .d_wrapper._ac .btn {
+  top: calc( var(--padding) + 30px );
+}
+#comments .cw .d_wrapper._ac textarea {
+    height: auto;
+    border-radius: 5px;
+    resize: none;
+    transition: 2000ms ease height;
+    padding-right: 40px;
+}
+#comments .cw .d_wrapper._ac:focus-within textarea {
+    height: 120px
+}
+#comments .cw .d_wrapper._ac:focus-within .btn {
+    visibility: visible;
+    opacity: 0.5;
+}
+#comments .cw .d_wrapper._ac textarea::placeholder {
+    color: rgba(var(--ui_color),0.4);
+}
+#comments .cw .d_wrapper._ac .btn .mdi {
+    color: inherit;
+    font-size: 22px;
+}
+#comments .cw .d_wrapper._ac:focus-within .btn:hover {
+    opacity: 1
+}
+
+
+#comments .comments {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: var(--padding3x);
+    margin-top: var(--padding3x);
+}
+
+#comments .cw.add_comment .d_wrapper {
+    align-content: center;
+}
+
+#comments .cw .d_wrapper .h_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding2x);
+}
+
+#comments .cw .d_wrapper .h_wrapper .name {
+    font-weight: 600;
+    font-size: 110%;
+}
+
+#comments .cw .d_wrapper .h_wrapper .time {
+    font-size: 90%;
+    opacity: 0.4;
+}
+
+#comments .cw .d_wrapper .text_wrapper {
+    font-weight: 300;
+    font-size: 104%;
+    line-height: 1.4;
+    opacity: 0.7;
+    word-break: break-word;
+}
+
+#comments .cw .d_wrapper .c_actions {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#comments .cw .d_wrapper .c_actions .c_action {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 5px;
+    /* background: red; */
+    padding: 4px 7px;
+    border-radius: 6px;
+    transition: 200ms ease all;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+#comments .cw .d_wrapper .c_actions .c_action:hover {
+    background: rgb(var(--ui_color),0.1);
+    opacity: 1;
+}
+
+#comments .cw .d_wrapper .c_actions .c_action .mdi {
+    font-size: 20px;
+}
+
+#comments .cw .d_wrapper ._replying {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    align-items: center;
+}
+
+#comments .cw .d_wrapper ._replying ._holder {
+    color: rgb(var(--theme_color));
+    font-weight: 600;
+}
+
+#comments .cw .d_wrapper ._replying .mdi {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 100, 'opsz' 30;
+    opacity: 0.3;
+    cursor: pointer
+}
+
+#comments .cw .d_wrapper ._replying .mdi:hover {
+    opacity: 1
+}
+
+#comments .cw .d_wrapper .comment_load_replies {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 3px;
+    color: rgba(var(--theme_color),1);
+    font-weight: 300;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#comments .cw .d_wrapper .comment_load_replies .mdi {
+    color: inherit;
+}
+
+#comments .cw .d_wrapper .c_actions.loading {
+    position: relative
+}
+
+#comments .cw .d_wrapper .c_actions.loading:after,
+#comments .cw .d_wrapper .c_actions.loading:before {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    display: block;
+    content: ""
+}
+
+#comments .cw .d_wrapper .c_actions.loading:after {
+    content: "\F0450";
+    display: inline-block;
+    font: normal normal normal 24px / 1 "Material Design Icons";
+    font-size: inherit;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    
+    font-size: 20px;
+    width: 20px;
+    z-index: 2;
+    animation: spin infinite 1500ms ease;
+    height: 20px;
+    line-height: 1;
+    color: rgb(var(--ui_color));
+    opacity: 0.3;
+}
+
+#comments .cw .d_wrapper .c_actions.loading:before {
+    background: rgb(var(--box_bg_color));
+    z-index: 1;
+}
+
+#comments .cw .d_wrapper .c_actions .c_action.active {
+    color: rgb(var(--theme_color));
+    font-weight: 500;
+}
+
+#comments .cw .d_wrapper .c_actions .c_action.active .mdi {
+    color: inherit;
+}
+
+#comments .cw .d_wrapper .children {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: var(--padding3x);
+    margin-top: var(--padding3x);
+}
+
+#comments .cw.add_comment.loading .d_wrapper,
+#comments .cw .d_wrapper.loading {
+    position: relative;
+}
+
+#comments .cw.add_comment.loading .d_wrapper:after,
+#comments .cw .d_wrapper.loading:after{
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(var(--box_bg_color),0.5);
+}
+
+#comments .cw.add_comment.loading .d_wrapper:before,
+#comments .cw .d_wrapper.loading:before {
+
+    position: absolute;
+    right: var(--padding2x);
+    /* left: 0; */
+    bottom: 0;
+    top: 0;
+    
+    display: inline-block;
+    font: normal normal normal 24px / 1 "Material Design Icons";
+    font-size: inherit;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    content: "\F0450";
+
+    color: rgba(Var(--theme_color),0.7);
+    font-size: 30px;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    animation: spin infinite 2000ms ease;
+    line-height: 1;
+}
+
+#comments .cw .d_wrapper.loading:before {
+    top: 30px
+}
+
+#comments .cw.add_comment .d_wrapper ._replying {
+    display: none;
+}
+
+bof_comments .loading > .mdi:before {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    line-height: 1;
+    animation: spin infinite 2000ms ease-out;
+    opacity: 0.3;
+    color: inherit
+}
+
+#comments .comments_sorter {
+    margin-bottom: calc(var(--padding) * 3);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: calc( var(--padding) * 0.5 );
+    font-size: var(--font_size);
+    font-weight: 500;
+    color: rgba(var(--ui_color),0.4);
+    cursor: pointer;
+    width: fit-content;
+}
+
+#comments .comments_sorter .mdi {
+    color: inherit;
+    font-size: 20px;
+}
+
+.bof_dropdown#comment_sorters {
+    width: 200px;
+}
+
+.bof_dropdown#comment_sorters ._links {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: var(--padding);
+}
+
+.bof_dropdown#comment_sorters ._links a {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    align-items: center;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.bof_dropdown#comment_sorters ._links a:hover {
+    opacity: 1;
+}
+
+.bof_dropdown#comment_sorters ._links a .mdi {
+    font-size: 20px;
+    font-variation-settings: 'FILL' 0, 'wght' 100, 'GRAD' 0, 'opsz' 24;
+}
+
+#comments .cant_comment {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+    font-size: 110%;
+    font-weight: 500;
+    opacity: 0.3;
+}
+
+#comments .cant_comment a {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 10px;
+}
+
+#comments .cant_comment a:hover {
+    opacity: 1
+}
+
+body.dir_rtl #comments .comments_title ._c {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+body.dir_rtl #comments .cw .d_wrapper._ac textarea {
+    padding-right: 15px;
+    padding-left: 40px;
+}
+
+body.dir_rtl #comments .cw .d_wrapper._ac .btn {
+    right: auto;
+    left: var(--padding);
+}
+
+body.mobile #comments .comments_title {
+    font-size: 200%;
+    font-weight: 600;
+}
+
+body.mobile #comments .cw .avatar_wrapper {
+    width: 36px;
+    height: 36px;
+}
+
+body.mobile #comments {
+    font-size: 8pt;
+}
+
+body.mobile #comments .cw .d_wrapper .c_actions .c_action .mdi {
+    font-size: 16px;
+}
+
+body.mobile #comments .cw .d_wrapper .children {
+    margin-left: -36px;
+}
+
+body.mobile.dir_rtl #comments .cw .d_wrapper .children {
+    margin-left: auto;
+    margin-right: -36px;
+}
+
+.widget.type_comments {
+    z-index: 3;
+}

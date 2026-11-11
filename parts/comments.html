@@ -1,0 +1,53 @@
+<div id="comments" data-object-type="$bof ? object_type$" data-object-hash="$bof ? object_hash$">
+
+    <div class="comments_title">$bof ? Lang^comments __uc=true$ <span class="_c">$bof ? count$</span></div>
+    <div class="comments_sorter dropdown_button" data-dropdown-x-pos="onleft" data-dropdown-y-pos="close" data-dropdown-id="comment_sorters" >
+        <span class="mdi mdi-sort"></span>$bof ? Lang^sort_by __uc=true$: <span class="_sb">$bof ? sort_by __turn=yes$</span>
+    </div>
+    <div class="bof_dropdown" id="comment_sorters" >
+        <div class="_links">
+            <a class="_cmsr" data-sortby="recent"><span class="mdi mdi-clock-outline"></span><span class="_text">$bof ? Lang^sort_by_recent __uc=true$</span></a>
+            <a class="_cmsr" data-sortby="oldest"><span class="mdi mdi-clock-outline"></span><span class="_text">$bof ? Lang^sort_by_oldest __uc=true$</span></a>
+            <a class="_cmsr" data-sortby="likes"><span class="mdi mdi-thumb-up-outline"></span><span class="_text">$bof ? Lang^sort_by_likes __uc=true$</span></a>
+            <a class="_cmsr" data-sortby="dislikes"><span class="mdi mdi-thumb-down-outline"></span><span class="_text">$bof ? Lang^sort_by_dislikes __uc=true$</span></a>
+            <a class="_cmsr" data-sortby="replies"><span class="mdi mdi-reply"></span><span class="_text">$bof ? Lang^sort_by_replies __uc=true$</span></a>
+        </div>
+    </div>
+
+    <div class="add_comment_wrapper">
+
+        $bof if can_comment$
+        <div class="add_comment cw" id="add_comment">
+            <div class="avatar_wrapper">$bof ? Parent^DataPool^user^avatar$</div>
+            <div class="d_wrapper _ac">
+                <div class="_replying">$bof ? Lang^replying_to __uc=true$ <span class="_holder"></span> <span class="mdi mdi-window-close _comment_cancel_reply"></span></div>
+                <textarea class="bof_input"
+                    placeholder="@$bof ? Parent^DataPool^user^username$ $bof ? Lang^comment_placeholder __uc=true$"></textarea>
+                <div class="btn btn-primary"><span class="mdi mdi-reply"></span></div>
+            </div>
+        </div>
+        $!bof if can_comment$
+
+        $bof if can_comment false$
+        <div class="cant_comment">
+            $bof if Parent^DataPool^logged$
+            <span class="mdi mdi-lock-alert-outline"></span> $bof ? Lang^comment_no_access __uc=true$
+            $!bof if Parent^DataPool^logged$
+            $bof if Parent^DataPool^logged false$
+            <a href="userAuth"><span class="mdi mdi-lock-alert-outline"></span> $bof ? Lang^comment_login_first __uc=true$</a>
+            $!bof if Parent^DataPool^logged false$
+        </div>
+        $!bof if can_comment false$
+
+    </div>
+
+    $bof if comments$
+    <div class="comments">
+        $bof foreach ?$
+        $bof html ? __name=comment$
+        $!bof foreach ?$
+    </div>
+    $!bof if comments$
+    
+
+</div>

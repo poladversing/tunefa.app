@@ -1,0 +1,92 @@
+bof_awf .ws_wrapper .ws .g_ws ._t_t {
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+
+.bof_dropdown.awf_text {
+    width: 240px;
+    flex-wrap: nowrap;
+    padding: var(--padding);
+    box-shadow: 0 3px 6px 4px hsl(0deg 0% 0% / 15%);
+    font-size: 9pt;
+}
+
+.bof_dropdown.awf_text a {
+    color: rgb(var(--theme_color));
+    font-weight: 500;
+    display: inline;
+}
+
+.widget#licenses .widget_content .table_wrapper table tr td.title {
+    font-size: 125%;
+    line-height: 1.6;
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.price {
+    font-size: 120%;
+    font-weight: 600;
+    width: 100px;
+    text-align: center;
+    color: rgba(var(--font_color),0.8);
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.btns {
+    width: 130px;
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.btns .btn {
+    padding: 8px 11px;
+    border-radius: 5px;
+    color: #fff;
+    background: rgba(var(--theme_color),1);
+    opacity: 0.6;
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.btns .btn:hover {
+    opacity: 1;
+}
+
+.widget#licenses .widget_content .table_wrapper table tr td .subData a {
+    text-decoration: underline;
+}
+
+.widget#licenses .widget_content .table_wrapper table tr td.title p {
+    margin: 5px 0;
+    display: block;
+}
+
+.widget#licenses .widget_content .table_wrapper table tr td.title p._ex {}
+
+.widget#licenses .widget_content .table_wrapper table tr td.title p._ex b {
+    color: rgba(var(--theme_color),0.7);
+    font-weight: 500;
+}
+
+.widget#licenses .widget_content .table_wrapper table tr td.title .subData {
+    color: rgba(var(--font_color),0.6);
+    opacity: 1;
+    display: block;
+}
+
+.widget#licenses .widget_content .table_wrapper table tr td.title .title {
+    font-size: 110%;
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.title {
+    padding: calc( var(--padding) * 2 );
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.btns .__btns {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: var(--padding);
+    align-items: center;
+}
+
+.widget#licenses .widget_content .table_wrapper table tbody tr td.btns .btn.btn-secondary {
+    background: rgba(var(--ui_color),0.05);
+    font-size: 9pt;
+    line-height: 1;
+    padding: 7px 16px 6px;
+}

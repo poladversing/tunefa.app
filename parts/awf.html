@@ -1,0 +1,81 @@
+<div class="awf_dom $bof if item^bof_file_bg$has_bg$!bof if item^bof_file_bg$">
+
+    $bof if item$
+    $bof if bof_file_bg$
+    <div class="_bg" style="background-image: url($bof ? web_address$);"></div>
+    $!bof if bof_file_bg$
+    <div class="_h">
+        <div class="button_wrapper play _play"><span class="mdi mdi-play"></span></div>
+        <div class="_mds">
+            <a href="$bof ? url$" class="_t">$bof ? title$</a>
+            <a href="$bof ? bof_dir_artist^url$" class="_ta">$bof ? bof_dir_artist^name_styled$</a>
+        </div>
+        <div class="_mtds">
+            <div class="_time">$bof ? bof_time_add_hr$</div>
+            $bof if bof_rel_genres$
+            <div class="_genres">
+                $bof foreach ?$
+                <a href="$bof ? url$">$bof ? name$</a>
+                $!bof foreach ?$
+            </div>
+            $!bof if bof_rel_genres$
+        </div>
+    </div>
+    $!bof if item$
+
+    <div class="ws_wrapper">
+        <div class="ws"></div>
+        $bof if comments$
+        <div class="awf_comments">
+            $bof foreach ?$
+            <div class="awf_comment" style="left: $bof ? muse_offset_i$%">
+                <div class="awf_user dropdown_button" data-dropdown-y-pos="close" data-dropdown-id="cm_$bof ? hash$">$bof ? user^avatar$</div>
+                <div class="bof_dropdown awf_text" ID="cm_$bof ? hash$"><a href="user/$bof ? user^username$">@$bof ? user^username$</a>: $bof ? text_display$</div>
+            </div>
+            $!bof foreach ?$
+        </div>
+        $!bof if comments$
+    </div>
+
+    $bof if item$
+    
+    <div class="_btns">
+
+        $bof if price$
+        <div class="button_wrapper btn btn-secondary purchase" onclick="window.app.actions.get_unlock_solution('$bof ? Parent^DataPool^ot$','$bof ? Parent^DataPool^hash$')">
+            <span class="mdi mdi-cart"></span>
+            <span class="_t">$bof ? Lang^purchase __uc=true$</span>
+        </div>
+        $!bof if price$
+    
+        <div onclick="window.app.actions.user.like(null,'$bof ? ot$','$bof ? hash$')"
+            class="button_wrapper btn btn-secondary _ico _like bof_$bof ? ot$_$bof ? hash$ $bof if liked$liked$!bof if liked$">
+            <span class="mdi mdi-heart-outline like"></span><span class="mdi mdi-heart unlike"></span>
+        </div>
+
+        <div onclick='window.app.actions.share.ini(`{"ot":"$bof ? ot$","hash":"$bof ? hash$"}`)' class="button_wrapper btn btn-secondary _ico">
+            <span class="mdi mdi-share"></span>
+        </div>
+
+        <div onclick="window.m2_awf.load_comments('$bof ? ot$','$bof ? hash$')" class="button_wrapper btn btn-secondary _ico">
+            <span class="mdi mdi-comment-outline"></span>
+        </div>
+
+        <div class="button_wrapper btn btn-secondary _ico more"><span class="mdi mdi-dots-vertical"></span></div>
+
+        <div class="_sts">
+            <div class="_st">
+                <span class="mdi mdi-heart"></span>
+                <span class="_c">$bof ? s_likes$</span>
+            </div>
+            <div class="_st">
+                <span class="mdi mdi-play"></span>
+                <span class="_c">$bof ? s_plays$</span>
+            </div>
+        </div>
+
+    </div>
+    
+    $!bof if item$
+
+</div>

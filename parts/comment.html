@@ -1,0 +1,53 @@
+<div class="a_comment cw a_comment_$bof ? hash$" data-hash="$bof ? hash$" data-author="$bof ? user^username$">
+    <a class="avatar_wrapper" href="user/$bof ? user^username$">$bof ? user^avatar$</a>
+    <div class="d_wrapper">
+        <div class="h_wrapper">
+            <a class="name" href="user/$bof ? user^username$">$bof ? user^name$</a>
+            <div class="time">$bof ? time_hr$</div>
+        </div>
+        <div class="text_wrapper">
+            $bof ? text_display$
+        </div>
+        <div class="c_actions">
+            $bof if canReply$
+            <div class="c_action _reply" data-action="reply" data-hash="$bof ? Parent^DataPool^hash$">
+                <span class="mdi mdi-reply"></span>
+                <span class="_t">$bof ? Lang^reply __uc=true$</span>
+            </div>
+            $!bof if canReply$
+            <div class="c_action _like $bof if ur^like$active$!bof if ur^like$" data-action="like" data-hash="$bof ? hash$">
+                <span class="mdi mdi-thumb-up-outline"></span>
+                <span class="_c">$bof ? s_likes$</span>
+            </div>
+            <div class="c_action _dislike $bof if ur^dislike$active$!bof if ur^dislike$" data-action="dislike" data-hash="$bof ? hash$">
+                <span class="mdi mdi-thumb-down-outline"></span>
+                <span class="_c">$bof ? s_dislikes$</span>
+            </div>
+            <div class="c_action _report $bof if ur^report$active$!bof if ur^report$" data-action="report" data-hash="$bof ? hash$">
+                <span class="mdi mdi-alert-circle-outline"></span>
+                <span class="_t">$bof ? Lang^report __uc=true$</span>
+            </div>
+            $bof if canDelete$
+            <div class="c_action" data-action="delete" data-hash="$bof ? Parent^DataPool^hash$">
+                <span class="mdi mdi-skull"></span>
+                <span class="_t">$bof ? Lang^delete __uc=true$</span>
+            </div>
+            $!bof if canDelete$
+        </div>
+
+        $bof if children false$
+        $bof if Parent^DataPool^s_replies$
+        <div class="comment_load_replies" data-hash="$bof ? Parent^Parent^DataPool^hash$"><span class="mdi mdi-arrow-down-thin"></span> $bof ? Lang^show_replies __uc=true$: $bof ? ?$</div>
+        $!bof if Parent^DataPool^s_replies$
+        $!bof if children false$
+
+        $bof if children$
+        <div class="children">
+            $bof foreach ?$
+            $bof html ? __name=comment$
+            $!bof foreach ?$
+        </div>
+        $!bof if children$
+
+    </div>
+</div>

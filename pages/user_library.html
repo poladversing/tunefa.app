@@ -1,0 +1,43 @@
+<div class="tabs clearafter hide_scroll">
+  $bof foreach single^tabs$
+  <a href="user_library?tab=$bof ? ?$" class='_$bof ? ?$'>$bof ? ? __turn=true __uc=true$</a>
+  $!bof foreach single^tabs$
+</div>
+
+$bof if single^sort_bys$
+  <div class="sort_by">
+
+    <div class="label dropdown_button sortby_handler" data-dropdown-id="sortby_dropdown"><span class="mdi mdi-swap-vertical"></span> Sort: $bof ? Parent^DataPool^single^sort_by_hr$</div>
+
+    <div class="bof_dropdown" id="sortby_dropdown">
+      <div class="_links specialButtons">
+        $bof foreach ?$
+        <a class="$bof ? ?^2$" href="user_library?tab=$bof ? Parent^Parent^DataPool^single^tab$&sort=$bof ? ?^0$">$bof ? ?^1$</a>
+        $!bof foreach ?$
+      </div>
+    </div>
+
+  </div>
+$!bof if single^sort_bys$
+
+$bof if single^widgets$
+  $bof foreach ?$
+    $bof html ? __name=widget$
+  $!bof foreach ?$
+$!bof if single^widgets$
+
+$bof if single^widgets false$
+<div class="nada">
+  <span class="mdi mdi-emoticon-sad-outline icon_404"></span>
+  $bof ? Lang^nothing_to_see __uc=true$
+</div>
+$!bof if single^widgets false$
+
+<div class="pages">
+  $bof if single^next_page$
+  <div class="next page objectNextItems" data-endpoint="$bof ? ?$" data-opage="user_library">
+    <span class="text">$bof ? Lang^next __uc=true$</span>
+    <span class="mdi mdi-refresh"></span>
+  </div>
+  $!bof if single^next_page$
+</div>

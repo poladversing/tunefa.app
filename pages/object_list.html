@@ -1,0 +1,13 @@
+$bof html single^widgets^0 __name=widget$
+
+<div class="pages">
+  $bof if single^pages^prev$
+  <a href="$bof ? ?$" class="page prev">$bof ? Lang^previous __uc=true$</a>
+  $!bof if single^pages^prev$
+  $bof if single^pages^next$
+  <div href="$bof ? ?$" class="page next objectNextItems" data-endpoint="$bof ? Becli^single^pages^nextBe$" data-opage="list">
+    <span class="text">$bof ? Lang^next __uc=true$</span>
+    <span class="mdi mdi-refresh"></span>
+  </div>
+  $!bof if single^pages^next$
+</div>

@@ -1,0 +1,49 @@
+<div class="st_page st_settings st_tab_$bof ? single^tab$">
+
+  <div class="st_head">
+    <h1 class="st_title">$bof ? Lang^settings$</h1>
+    <a class="st_account" href="user/$bof ? Config^user^data^username$">
+      <span class="st_account_av">$bof ? Config^user^data^avatar$</span>
+      <span class="st_account_txt">
+        <b>$bof ? Config^user^data^name$</b>
+        <span><bdi>@$bof ? Config^user^data^username$</bdi></span>
+      </span>
+      <span class="st_account_go">$bof ? Lang^view_profile$<span class="mdi mdi-arrow-top-right"></span></span>
+    </a>
+  </div>
+
+  <div class="st_body">
+
+    <nav class="st_nav tabs hide_scroll" aria-label="$bof ? Lang^settings$">
+      $bof foreach single^tabs$
+      <a href="user_edit?tab=$bof ? ?$" class="st_nav_i _$bof ? ?$" data-tab="$bof ? ?$"><span class="st_nav_ic mdi"></span><span class="st_nav_t">$bof ? ? __turn=true __uc=true$</span></a>
+      $!bof foreach single^tabs$
+    </nav>
+
+    <div class="st_main">
+
+      <div class="st_sec_head">
+        <h2 class="st_sec_title">$bof ? single^tab __turn=true __uc=true$</h2>
+        $bof if single^tab = profile$<p class="st_sec_desc">$bof ? Lang^st_d_profile$</p>$!bof if single^tab = profile$
+        $bof if single^tab = security$<p class="st_sec_desc">$bof ? Lang^st_d_security$</p>$!bof if single^tab = security$
+        $bof if single^tab = transactions$<p class="st_sec_desc">$bof ? Lang^st_d_transactions$</p>$!bof if single^tab = transactions$
+        $bof if single^tab = notifications$<p class="st_sec_desc">$bof ? Lang^st_d_notifications$</p>$!bof if single^tab = notifications$
+        $bof if single^tab = links$<p class="st_sec_desc">$bof ? Lang^st_d_links$</p>$!bof if single^tab = links$
+        $bof if single^tab = sessions$<p class="st_sec_desc">$bof ? Lang^st_d_sessions$</p>$!bof if single^tab = sessions$
+        $bof if single^tab = delete$<p class="st_sec_desc">$bof ? Lang^st_d_delete$</p>$!bof if single^tab = delete$
+        $bof if single^tab = unsub$<p class="st_sec_desc">$bof ? Lang^st_d_unsub$</p>$!bof if single^tab = unsub$
+      </div>
+
+      $bof if single^bofForm$
+        $bof html ? __name=bofForm$
+      $!bof if single^bofForm$
+
+      $bof if single^content$
+        <div class="st_content">$bof ? ?^html$</div>
+      $!bof if single^content$
+
+    </div>
+
+  </div>
+
+</div>
